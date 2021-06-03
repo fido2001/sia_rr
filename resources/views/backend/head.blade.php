@@ -10,6 +10,7 @@
     <title>SIA RR</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ URL('/') }}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('/')}}/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     @yield('css')
     <!-- Custom CSS -->
     <link href="{{ URL('/') }}/assets/css/style.css" rel="stylesheet">

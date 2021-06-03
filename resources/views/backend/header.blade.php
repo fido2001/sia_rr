@@ -11,9 +11,9 @@
                 <b>
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="{{ URL('/') }}/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                    {{-- <img src="{{ URL('/') }}/assets/images/logo-icon.png" alt="homepage" class="dark-logo" /> --}}
                     <!-- Light Logo icon -->
-                    <img src="{{ URL('/') }}/assets/images/logo/umbul2.png" style="width: 70px" alt="homepage" class="light-logo" />
+                    {{-- <img src="{{ URL('/') }}/assets/images/logo/umbul2.png" style="width: 70px" alt="homepage" class="light-logo" /> --}}
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
