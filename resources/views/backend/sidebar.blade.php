@@ -37,10 +37,10 @@
                 <li>
                     <a href="{{ URL('/admin') }}" aria-expanded="false"><i class="fa fa-home"></i><span class="hide-menu">Dashboard</span></a>
                 </li>
-                <li>
+                <li class="@if(Request::segment(1) == 'akun') active @endif">
                     <a href="{{ URL('/akun') }}" aria-expanded="false"><i class="fa fa-dollar"></i><span class="hide-menu">Manajemen Akun</span></a>
                 </li>
-                <li>
+                <li class="@if(Request::segment(1) == 'jurnal') active @endif">
                     <a href="{{ URL('/jurnal') }}" aria-expanded="false"><i class="fa fa-pencil"></i><span class="hide-menu">Jurnal Umum</span></a>
                 </li>
             </ul>

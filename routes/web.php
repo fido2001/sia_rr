@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('jurnal', 'JurnalController@index')->name('jurnal.index');
     Route::get('jurnal/create', 'JurnalController@create')->name('jurnal.create');
     Route::post('jurnal/create', 'JurnalController@store')->name('jurnal.store');
+    Route::get('jurnal/{bulan}/{tahun}', 'JurnalController@getJurnal')->name('jurnal.getJurnal');
 });
 
 Route::get('/', function () {
