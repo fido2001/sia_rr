@@ -11,7 +11,8 @@ class JurnalController extends Controller
 {
     public function index()
     {
-        $jurnals = Jurnal::all();
+        $jurnals = Jurnal::whereMonth('tanggal', date('m'))->whereYear('tanggal', date('Y'))->get();
+        dd($jurnals);
 
         return view('jurnal.index', ['jurnals' => $jurnals]);
     }
@@ -56,5 +57,9 @@ class JurnalController extends Controller
         ]);
 
         return redirect()->route('jurnal.index')->with('success', 'Data berhasil ditambah');
+    }
+
+    public function getJurnal()
+    {
     }
 }

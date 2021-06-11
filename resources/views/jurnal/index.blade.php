@@ -45,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($jurnals as $no => $jurnal)
+                            @forelse ($jurnals as $no => $jurnal)
                             <tr>
                                 {{-- <td>{{ $no+1 }}</td> --}}
                                 <td>{{ $jurnal->tanggal }}</td>
@@ -76,7 +76,13 @@
                                     </a>
                                 </td> --}}
                             </tr>
-                            @endforeach
+                            @empty
+                            <div class="alert alert-warning show fade">
+                                <div class="alert-body">
+                                    Tidak ada data di bulan ini.
+                                </div>
+                            </div>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
