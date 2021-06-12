@@ -43,6 +43,12 @@
                 <li class="@if(Request::segment(1) == 'jurnal') active @endif">
                     <a href="{{ URL('/jurnal') }}" aria-expanded="false"><i class="fa fa-pencil"></i><span class="hide-menu">Jurnal Umum</span></a>
                 </li>
+                <li class="@if(Request::segment(1) == 'products') active @endif">
+                    <a href="{{ URL('/products') }}" aria-expanded="false"><i class="fa fa-shopping-cart"></i><span class="hide-menu">List Produk</span></a>
+                </li>
+                <li class="@if(Request::segment(1) == 'transaction') active @endif">
+                    <a href="{{ URL('/transaction') }}" aria-expanded="false"><i class="fa fa-dollar"></i><span class="hide-menu">Penjualan</span></a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
