@@ -113,12 +113,12 @@
                                 @endif
                                 <td>{{ $jurnal->keterangan }}</td>
                                 @if ($jurnal->nom_debit != null)
-                                <td>{{ $jurnal->nom_debit }}</td>
+                                <td>Rp. {{ number_format($jurnal->nom_debit,2,',','.') }}</td>
                                 @else
                                 <td>-</td>
                                 @endif
                                 @if ($jurnal->nom_kredit != null)
-                                <td>{{ $jurnal->nom_kredit }}</td>
+                                <td>Rp. {{ number_format($jurnal->nom_kredit,2,',','.') }}</td>
                                 @else
                                 <td>-</td>
                                 @endif

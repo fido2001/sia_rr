@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\HistoryProduct;
+use App\Jurnal;
 use App\ProductTransaction;
 use App\Transaction;
 use Auth;
+use Carbon\Carbon;
 use DB;
 
 use Darryldecode\Cart\CartCondition;
@@ -148,7 +150,7 @@ class TransactionController extends Controller
                         'user_id' => Auth::id(),
                         'qty' => $product->qty,
                         'qtyChange' => -$cart['quantity'],
-                        'tipe' => 'decrease from transaction'
+                        'tipe' => 'stok berkurang dari transaksi'
                     ]);
 
                     $product->decrement('qty', $cart['quantity']);
@@ -163,6 +165,20 @@ class TransactionController extends Controller
                     'total' => $cart_total
                 ]);
 
+                Jurnal::create([
+                    'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
+                    'debit_id' => 1,
+                    'nom_debit' => $cart_total,
+                    'keterangan' => 'Penjualan dengan Nomor Invoice ' . $id,
+                ]);
+
+                Jurnal::create([
+                    'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
+                    'kredit_id' => 29,
+                    'nom_kredit' => $cart_total,
+                    'keterangan' => 'Penjualan dengan Nomor Invoice ' . $id,
+                ]);
+
                 foreach ($filterCart as $cart) {
 
                     ProductTransaction::create([
@@ -175,13 +191,13 @@ class TransactionController extends Controller
                 \Cart::session(Auth()->id())->clear();
 
                 DB::commit();
-                return redirect()->back()->with('success', 'Transaksi Berhasil dilakukan Tahu Coding | Klik History untuk print');
+                return redirect()->back()->with('success', 'Transaksi Berhasil dilakukan | Klik History untuk print');
             } catch (\Exeception $e) {
                 DB::rollback();
-                return redirect()->back()->with('errorTransaksi', 'jumlah pembayaran gak valid');
+                return redirect()->back()->with('errorTransaksi', 'jumlah pembayaran tidak valid');
             }
         }
-        return redirect()->back()->with('errorTransaksi', 'jumlah pembayaran gak valid');
+        return redirect()->back()->with('errorTransaksi', 'jumlah pembayaran tidak valid');
     }
 
     public function clear()
@@ -244,4 +260,3 @@ class TransactionController extends Controller
         return view('laporan.transaksi', compact('transaksi'));
     }
 }
-//© 2020 Copyright: Tahu Coding

@@ -21,7 +21,7 @@
                     <!-- dark Logo text -->
                     <img src="{{ URL('/') }}/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                     <!-- Light Logo text -->    
-                    <b>SIA</b> RR</span> </a>
+                    <b>TOKO</b> RR</span> </a>
         </div>
         <!-- ============================================================== -->
         <!-- End Logo -->
