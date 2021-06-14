@@ -20,6 +20,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/transaction/history', 'TransactionController@history');
     Route::get('/transaction/laporan/{id}', 'TransactionController@laporan');
     Route::get('bukubesar', 'BukubesarController@index')->name('bukubesar.index');
+    Route::get('neraca', 'NeracaController@index')->name('neraca.index');
 });
 
 Route::get('/', function () {

@@ -14,24 +14,22 @@
             </ol>
         </div>
     </div>
-    <div class="row">
-        <!-- Column -->
-        <div class="card col-md-12">
-            <div class="card-body">
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible show fade">
-                        <div class="alert-body">
-                            <button class="close" data-dismiss="alert">
-                                <span>&times;</span>
-                            </button>
-                            {{ session('success') }}
-                        </div>
-                    </div>
-                @endif
+    
+        
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                {{ session('success') }}
             </div>
         </div>
-                
-        @foreach($akuns as $akun)
+    @endif
+          
+    @foreach($akuns as $akun)
+    <div class="row">
+    <!-- Column -->            
         <div class="card col-md-12">
             <div class="card-body">
                 <div class="card card-outline-info">
@@ -97,8 +95,8 @@
                 </div>
             </div>
         </div>
-        @endforeach
     </div>
+    @endforeach
 </div>
 @endsection
 
