@@ -43,8 +43,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="control-label">Nominal Debit</label>
-                                        <input type="number" min="1000" name="nom_debit" value="{{ old('nom_debit') }}" class="form-control @error('nom_debit') is-invalid @enderror">
+                                        <label class="control-label">Nominal</label>
+                                        <input type="number" min="1000" name="nominal" value="{{ old('nominal') }}" class="form-control @error('nom_debit') is-invalid @enderror">
                                         @error('nom_debit')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -64,17 +64,6 @@
                                             @endforeach
                                         </select>
                                         @error('kredit_id')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Nominal Kredit</label>
-                                        <input type="number" min="1000" name="nom_kredit" value="{{ old('nom_kredit') }}" class="form-control @error('nom_kredit') is-invalid @enderror">
-                                        @error('nom_kredit')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

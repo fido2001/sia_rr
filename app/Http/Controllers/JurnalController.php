@@ -29,15 +29,13 @@ class JurnalController extends Controller
             [
                 'debit_id' => 'required',
                 'kredit_id' => 'required',
-                'nom_debit' => 'required',
-                'nom_kredit' => 'required',
+                'nominal' => 'required',
                 'keterangan' => 'required',
             ],
             [
                 'debit_id.required' => 'Data tidak boleh kosong, harap diisi',
                 'kredit_id.required' => 'Data tidak boleh kosong, harap diisi',
-                'nom_debit.required' => 'Data tidak boleh kosong, harap diisi',
-                'nom_kredit.required' => 'Data tidak boleh kosong, harap diisi',
+                'nominal.required' => 'Data tidak boleh kosong, harap diisi',
                 'keterangan.required' => 'Data tidak boleh kosong, harap diisi',
             ]
         );
@@ -45,14 +43,14 @@ class JurnalController extends Controller
         Jurnal::create([
             'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
             'debit_id' => $request->debit_id,
-            'nom_debit' => $request->nom_debit,
+            'nom_debit' => $request->nominal,
             'keterangan' => $request->keterangan,
         ]);
 
         Jurnal::create([
             'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
             'kredit_id' => $request->kredit_id,
-            'nom_kredit' => $request->nom_kredit,
+            'nom_kredit' => $request->nominal,
             'keterangan' => $request->keterangan,
         ]);
 
