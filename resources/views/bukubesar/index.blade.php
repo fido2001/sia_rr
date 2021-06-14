@@ -51,7 +51,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php $saldo = 0 @endphp
+                                @php 
+                                $saldo = 0 ;
+                                $saldo2 = 0 ;
+                                @endphp
+                                
                                 @forelse ($akun->jurnal as $jurnal)
                                 <tr>
                                     
@@ -68,9 +72,14 @@
                                     <td>-</td>
                                     @endif
                                     @php
-                                    $saldo = $saldo + $jurnal->nom_debit - $jurnal->nom_kredit 
+                                        $saldo = $saldo + $jurnal->nom_debit - $jurnal->nom_kredit ;
+                                        $saldo2 = $saldo*-1 ;
                                     @endphp
-                                    <td> {{ $saldo }} </td>
+                                    @if($saldo < 0)
+                                    <td>Rp. {{ number_format($saldo2,2,',','.') }} </td>
+                                    @else
+                                    <td>Rp. {{ number_format($saldo,2,',','.') }} </td>
+                                    @endif
                                 </tr>
                                 @empty
                                 <div class="alert alert-warning show fade">
