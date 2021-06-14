@@ -55,6 +55,9 @@
                 <li class="@if(Request::segment(1) == 'neraca') active @endif">
                     <a href="{{ URL('/neraca') }}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Neraca</span></a>
                 </li>
+                <li class="@if(Request::segment(1) == 'labarugi') active @endif">
+                    <a href="{{ URL('/labarugi') }}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Laba - Rugi</span></a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
