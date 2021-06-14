@@ -42,14 +42,14 @@ class JurnalController extends Controller
 
         Jurnal::create([
             'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
-            'debit_id' => $request->debit_id,
+            'akun_id' => $request->debit_id,
             'nom_debit' => $request->nominal,
             'keterangan' => $request->keterangan,
         ]);
 
         Jurnal::create([
             'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
-            'kredit_id' => $request->kredit_id,
+            'akun_id' => $request->kredit_id,
             'nom_kredit' => $request->nominal,
             'keterangan' => $request->keterangan,
         ]);

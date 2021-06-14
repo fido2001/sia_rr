@@ -8,13 +8,8 @@ class Akun extends Model
 {
     protected $fillable = ['kode', 'nama_akun'];
 
-    public function debit_akun()
+    public function jurnal()
     {
-        return $this->hasOne('App\Jurnal', 'debit_id');
-    }
-
-    public function kredit_akun()
-    {
-        return $this->hasOne('App\Jurnal', 'debit_id');
+        return $this->hasMany('App\Jurnal', 'akun_id');
     }
 }

@@ -49,6 +49,9 @@
                 <li class="@if(Request::segment(1) == 'transaction') active @endif">
                     <a href="{{ URL('/transaction') }}" aria-expanded="false"><i class="fa fa-dollar"></i><span class="hide-menu">Penjualan</span></a>
                 </li>
+                <li class="@if(Request::segment(1) == 'bukubesar') active @endif">
+                    <a href="{{ URL('/bukubesar') }}" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">Buku Besar</span></a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

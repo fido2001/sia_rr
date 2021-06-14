@@ -6,15 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jurnal extends Model
 {
-    protected $fillable = ['tanggal', 'debit_id', 'nom_debit', 'kredit_id', 'nom_kredit', 'keterangan'];
+    protected $fillable = ['tanggal', 'akun_id', 'nom_debit', 'nom_kredit', 'keterangan'];
 
-    public function debit()
+    public function akun()
     {
-        return $this->belongsTo('App\Akun', 'debit_id', 'id');
-    }
-
-    public function kredit()
-    {
-        return $this->belongsTo('App\Akun', 'kredit_id', 'id');
+        return $this->belongsTo('App\Akun', 'akun_id', 'id');
     }
 }

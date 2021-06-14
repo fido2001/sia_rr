@@ -104,13 +104,11 @@
                         <tbody>
                             @forelse ($jurnals as $no => $jurnal)
                             <tr>
-                                {{-- <td>{{ $no+1 }}</td> --}}
+                                
                                 <td>{{ $jurnal->tanggal }}</td>
-                                @if ($jurnal->debit_id != null)
-                                <td>{{ $jurnal->debit->kode }} - {{ $jurnal->debit->nama_akun }}</td>
-                                @else
-                                <td>{{ $jurnal->kredit->kode }} - {{ $jurnal->kredit->nama_akun }}</td>
-                                @endif
+                                
+                                <td>{{ $jurnal->akun->kode }} - {{ $jurnal->akun->nama_akun }}</td>
+                                
                                 <td>{{ $jurnal->keterangan }}</td>
                                 @if ($jurnal->nom_debit != null)
                                 <td>Rp. {{ number_format($jurnal->nom_debit,2,',','.') }}</td>
