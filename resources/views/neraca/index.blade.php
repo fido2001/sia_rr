@@ -27,12 +27,6 @@
                         <table id="myTable" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th colspan="2"></th>
-                                    <th colspan="2" class="text-center">Neraca Saldo</th>
-                                    <th colspan="2" class="text-center">Laba Rugi</th>
-                                    <th colspan="2" class="text-center">Neraca</th>
-                                </tr>
-                                <tr>
                                     <th>Nomor Akun</th>
                                     <th>Nama Akun</th>
                                     <th>Debit</th>
@@ -41,6 +35,14 @@
                                     <th>Kredit</th>
                                     <th>Debit</th>
                                     <th>Kredit</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2" class="text-center">Neraca Saldo</th>
+                                    <th colspan="2" class="text-center">Laba Rugi</th>
+                                    <th colspan="2" class="text-center">Neraca</th>
                                 </tr>
                             </thead>
                             <tbody>
