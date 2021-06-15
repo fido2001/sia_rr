@@ -14,143 +14,129 @@
             </ol>
         </div>
     </div>
-
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible show fade">
-            <div class="alert-body">
-                <button class="close" data-dismiss="alert">
-                    <span>&times;</span>
-                </button>
-                {{ session('success') }}
-            </div>
-        </div>
-    @endif
                 
-
     <div class="row">
-        <!-- Column -->
+    <!-- Column -->
         <div class="card col-md-12">
             <div class="card-body">
-                <h4 class="card-title">Neraca</h4>
-                <div class="table-responsive m-t-10">
-                    <table id="myTable" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th colspan="2"></th>
-                                <th colspan="2" class="text-center">Neraca Saldo</th>
-                                <th colspan="2" class="text-center">Laba Rugi</th>
-                                <th colspan="2" class="text-center">Neraca</th>
-                            </tr>
-                            <tr>
-                                <th>Nomor Akun</th>
-                                <th>Nama Akun</th>
-                                <th>Debit</th>
-                                <th>Kredit</th>
-                                <th>Debit</th>
-                                <th>Kredit</th>
-                                <th>Debit</th>
-                                <th>Kredit</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $c1=0;
-                                $c2=0;
-                                $c3=0;
-                                $c4=0;
-                                $c5=0;
-                                $c6=0;
-                            @endphp
-                            @forelse ($akuns as $akun)
-                                @php 
-                                    $saldo = 0 ;
-                                    $saldo2 = 0 ;
+                <div class="card card-outline-info">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Neraca</h4>
+                    </div>
+                    <div class="table-responsive m-t-10">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <th colspan="2" class="text-center">Neraca Saldo</th>
+                                    <th colspan="2" class="text-center">Laba Rugi</th>
+                                    <th colspan="2" class="text-center">Neraca</th>
+                                </tr>
+                                <tr>
+                                    <th>Nomor Akun</th>
+                                    <th>Nama Akun</th>
+                                    <th>Debit</th>
+                                    <th>Kredit</th>
+                                    <th>Debit</th>
+                                    <th>Kredit</th>
+                                    <th>Debit</th>
+                                    <th>Kredit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $c1=0;
+                                    $c2=0;
+                                    $c3=0;
+                                    $c4=0;
+                                    $c5=0;
+                                    $c6=0;
                                 @endphp
-                                @foreach($akun->jurnal as $jurnal)
-                                    @php
-                                        $saldo = $saldo + $jurnal->nom_debit - $jurnal->nom_kredit ;
-                                        $saldo2 = $saldo*-1 ;
+                                @forelse ($akuns as $akun)
+                                    @php 
+                                        $saldo = 0 ;
+                                        $saldo2 = 0 ;
                                     @endphp
-                                @endforeach
-                            <tr>
-                                
-                                <td>{{ $akun->kode }}</td>
-                                <td>{{ $akun->nama_akun }}</td>
-                                @if($saldo > 0)
-                                <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c1=$c1+$saldo; @endphp
-                                @else
-                                <td></td>
-                                @endif
-                                @if($saldo < 0)
-                                <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c2=$c2+$saldo2; @endphp
-                                @else
-                                <td></td>
-                                @endif
-                                @if($akun->kode >= 4000)
+                                    @foreach($akun->jurnal as $jurnal)
+                                        @php
+                                            $saldo = $saldo + $jurnal->nom_debit - $jurnal->nom_kredit ;
+                                            $saldo2 = $saldo*-1 ;
+                                        @endphp
+                                    @endforeach
+                                <tr>
+                                    <td>{{ $akun->kode }}</td>
+                                    <td>{{ $akun->nama_akun }}</td>
                                     @if($saldo > 0)
-                                    <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c3=$c3+$saldo; @endphp
+                                    <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c1=$c1+$saldo; @endphp
                                     @else
                                     <td></td>
                                     @endif
-                                @else
-                                <td></td>
-                                @endif
-                                @if($akun->kode >= 4000)
                                     @if($saldo < 0)
-                                    <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c4=$c4+$saldo2; @endphp
+                                    <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c2=$c2+$saldo2; @endphp
                                     @else
                                     <td></td>
                                     @endif
-                                @else
-                                <td></td>
-                                @endif
-                                @if($akun->kode < 4000)
-                                    @if($saldo > 0)
-                                    <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c5=$c5+$saldo; @endphp
+                                    @if($akun->kode >= 4000)
+                                        @if($saldo > 0)
+                                        <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c3=$c3+$saldo; @endphp
+                                        @else
+                                        <td></td>
+                                        @endif
                                     @else
                                     <td></td>
                                     @endif
-                                @else
-                                <td></td>
-                                @endif
-                                @if($akun->kode < 4000)
-                                    @if($saldo < 0)
-                                    <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c6=$c6+$saldo2; @endphp
+                                    @if($akun->kode >= 4000)
+                                        @if($saldo < 0)
+                                        <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c4=$c4+$saldo2; @endphp
+                                        @else
+                                        <td></td>
+                                        @endif
                                     @else
                                     <td></td>
                                     @endif
-                                @else
-                                <td></td>
-                                @endif
-                                
-                                
-                                
-                            </tr>
-                            @empty
-                            <div class="alert alert-warning show fade">
-                                <div class="alert-body">
-                                    <button class="close" data-dismiss="alert">
-                                        <span>&times;</span>
-                                    </button>
-                                    Tidak ada data di bulan ini.
+                                    @if($akun->kode < 4000)
+                                        @if($saldo > 0)
+                                        <td>Rp. {{ number_format($saldo,0,',','.') }}</td> @php $c5=$c5+$saldo; @endphp
+                                        @else
+                                        <td></td>
+                                        @endif
+                                    @else
+                                    <td></td>
+                                    @endif
+                                    @if($akun->kode < 4000)
+                                        @if($saldo < 0)
+                                        <td>Rp. {{ number_format($saldo2,0,',','.') }}</td> @php $c6=$c6+$saldo2; @endphp
+                                        @else
+                                        <td></td>
+                                        @endif
+                                    @else
+                                    <td></td>
+                                    @endif
+                                </tr>
+                                @empty
+                                <div class="alert alert-warning show fade">
+                                    <div class="alert-body">
+                                        <button class="close" data-dismiss="alert">
+                                            <span>&times;</span>
+                                        </button>
+                                        Tidak ada data di bulan ini.
+                                    </div>
                                 </div>
-                            </div>
-                            @endforelse
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td colspan="2"></td>
-                                <td>Rp. {{ number_format($c1,0,',','.') }}</td>
-                                <td>Rp. {{ number_format($c2,0,',','.') }}</td>
-                                <td>Rp. {{ number_format($c3,0,',','.') }}</td>
-                                <td>Rp. {{ number_format($c4,0,',','.') }}</td>
-                                <td>Rp. {{ number_format($c5,0,',','.') }}</td>
-                                <td>Rp. {{ number_format($c6,0,',','.') }}</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
+                                @endforelse
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td>Rp. {{ number_format($c1,0,',','.') }}</td>
+                                    <td>Rp. {{ number_format($c2,0,',','.') }}</td>
+                                    <td>Rp. {{ number_format($c3,0,',','.') }}</td>
+                                    <td>Rp. {{ number_format($c4,0,',','.') }}</td>
+                                    <td>Rp. {{ number_format($c5,0,',','.') }}</td>
+                                    <td>Rp. {{ number_format($c6,0,',','.') }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
