@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', 'HomeController@index')->name('index');
     Route::resource('/akun', 'AkunController');
+    Route::resource('/user', 'UserController');
     Route::resource('/products', 'ProductController');
     Route::get('jurnal', 'JurnalController@index')->name('jurnal.index');
     Route::get('jurnal/create', 'JurnalController@create')->name('jurnal.create');
