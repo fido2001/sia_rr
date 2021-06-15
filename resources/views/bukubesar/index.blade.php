@@ -26,12 +26,69 @@
             </div>
         </div>
     @endif
-          
+
     @foreach($akuns as $akun)
     <div class="row">
     <!-- Column -->            
         <div class="card col-md-12">
             <div class="card-body">
+                <div class="row m-t-10">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="m-b-0 text-white">Filter Buku Besar</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Bulan</label>
+                                                <select name="bulan" id="bulan" class="form-control @error('bulan') is-invalid @enderror">
+                                                    {{-- <option disabled selected>-- Bulan --</option> --}}
+                                                    <option value="01">Januari</option>
+                                                    <option value="02">Februari</option>
+                                                    <option value="03">Maret</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">Mei</option>
+                                                    <option value="06">Juni</option>
+                                                    <option value="07">Juli</option>
+                                                    <option value="08">Agustus</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Desember</option>
+                                                </select>
+                                                @error('bulan')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Tahun</label>
+                                                <select name="tahun" id="tahun" class="form-control @error('tahun') is-invalid @enderror">
+                                                    <option value="2021">2021</option>
+                                                    <option value="2022">2022</option>
+                                                </select>
+                                                @error('tahun')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <a href="" onclick="this.href='/bukubesar/' + document.getElementById('bulan').value + '/' + document.getElementById('tahun').value" class="btn btn-success"><i class="fa fa-eye"></i> Cari</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card card-outline-info">
                     <div class="card-header">
                         <h4 class="m-b-0 text-white">{{ $akun->kode }} {{ $akun->nama_akun }}</h4>

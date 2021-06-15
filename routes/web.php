@@ -21,8 +21,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/transaction/history', 'TransactionController@history');
     Route::get('/transaction/laporan/{id}', 'TransactionController@laporan');
     Route::get('bukubesar', 'BukubesarController@index')->name('bukubesar.index');
+    Route::get('bukubesar/{bulan}/{tahun}', 'BukubesarController@getBukubesar')->name('bukubesar.getLabarugi');
     Route::get('neraca', 'NeracaController@index')->name('neraca.index');
+    Route::get('neraca/{bulan}/{tahun}', 'NeracaController@getNeraca')->name('neraca.getNeraca');
     Route::get('labarugi', 'LabarugiController@index')->name('labarugi.index');
+    Route::get('labarugi/{bulan}/{tahun}', 'LabarugiController@getLabarugi')->name('labarugi.getLabarugi');
 });
 
 Route::get('/', function () {
