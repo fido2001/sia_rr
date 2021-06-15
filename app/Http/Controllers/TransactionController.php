@@ -167,14 +167,14 @@ class TransactionController extends Controller
 
                 Jurnal::create([
                     'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
-                    'debit_id' => 1,
+                    'akun_id' => 1,
                     'nom_debit' => $cart_total,
                     'keterangan' => 'Penjualan dengan Nomor Invoice ' . $id,
                 ]);
 
                 Jurnal::create([
                     'tanggal' => Carbon::now()->setTimezone('Asia/Jakarta'),
-                    'kredit_id' => 29,
+                    'akun_id' => 29,
                     'nom_kredit' => $cart_total,
                     'keterangan' => 'Penjualan dengan Nomor Invoice ' . $id,
                 ]);
